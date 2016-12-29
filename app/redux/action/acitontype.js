@@ -1,0 +1,14 @@
+export const A         = 'FETCH_DATA_START';
+export const FETCH_DATA_SUCCESS       = 'FETCH_DATA_SUCCESS';
+export const FETCH_DATA_ERROR         = 'FETCH_DATA_ERROR';
+export const CLICK_START              = 'CLICK_START';
+export const CLICK_COMPELETE          = 'CLICK_COMPELETE';
+export const INIT_STATE               = 'INIT_STATE';
+export const SAVE_CHECKED_DATA        = 'SAVE_CHECKED_DATA';
+export const RESET_ALL_LOADING        = 'RESET_ALL_LOADING';
+export const CHANGE_EDIT_TABLE_STATUS = 'CHANGE_EDIT_TABLE_STATUS';
+export const SHOW_MODAL               = 'SHOW_MODAL';
+export const DISMISS_MODAL            = 'DISMISS_MODAL';
+// export const INIT_ADD_PRICE_INPUT     = 'INIT_ADD_PRICE_INPUT';
+export const CHANGE_INPUT_EDITABLE    = 'CHANGE_INPUT_EDITABLE';
+export const CHANGE_INPUT_DISABLE     = 'CHANGE_INPUT_DISABLE';
