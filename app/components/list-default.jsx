@@ -33,18 +33,17 @@ const listHeader = React.createClass({
           {/*<slider top_stories="topStories" v-cloak></slider>*/}
 
           {/*// <!--列表-->*/}
-
-          <div className="list-box s-{{* date}}" >
             {allStories.map(item =>
-              <ul key={item.date}>
-                <h2 className="title">{filter.dateTime(item.date)}</h2>
-                {item.stories.map(subItem=>
-                  <ListItem key={subItem.id} item={subItem}></ListItem>
-                )}
-                {/*<list-comp v-for="subItem in item.stories" item="subItem"></list-comp>*/}
-              </ul>
+              <div className="list-box" >
+                <ul key={item.date}>
+                  <h2 className="title">{filter.dateTime(item.date)}</h2>
+                  {item.stories.map(subItem=>
+                    <ListItem key={subItem.id} item={subItem}></ListItem>
+                  )}
+                  {/*<list-comp v-for="subItem in item.stories" item="subItem"></list-comp>*/}
+                </ul>
+              </div>
             )}
-          </div>
         </div>
     )
   }

@@ -17,12 +17,13 @@ export const contentList = (state=[], action) => {
         loading: true
       })
     case 'GET_NEXT_NEWS_SUCCESS':
-      console.log('出发了action' + action)
+      console.log(action)
+      console.log(state)
       return Object.assign({}, state, {
         ...state,
         loading: false,
         date: action.data.date,
-        all_stories: state.data.all_stories.concat(action.data)
+        all_stories: state.all_stories.concat(action.data)
       })
     default:
       return state
