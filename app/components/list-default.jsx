@@ -23,7 +23,8 @@ const listHeader = React.createClass({
   },
   render() {
     let { dispatch } = this.props
-    let stories = this.props.stories? this.props.stories : []
+    let allStories = this.props.all_stories ? this.props.all_stories : []
+    console.log(allStories)
     let date = this.props.date? this.props.date : ''
     console.log(date)
     return (
@@ -34,13 +35,15 @@ const listHeader = React.createClass({
           {/*// <!--列表-->*/}
 
           <div className="list-box s-{{* date}}" >
-            <ul>
-              <h2 className="title">{filter.dateTime(date)}</h2>
-              {stories.map(item=>
-                  <ListItem key={item.id} item={item}></ListItem>
-              )}
-              {/*<list-comp v-for="subItem in item.stories" item="subItem"></list-comp>*/}
-            </ul>
+            {allStories.map(item =>
+              <ul key={item.date}>
+                <h2 className="title">{filter.dateTime(item.date)}</h2>
+                {item.stories.map(subItem=>
+                  <ListItem key={subItem.id} item={subItem}></ListItem>
+                )}
+                {/*<list-comp v-for="subItem in item.stories" item="subItem"></list-comp>*/}
+              </ul>
+            )}
           </div>
         </div>
     )
@@ -48,7 +51,7 @@ const listHeader = React.createClass({
 });
 
 const mapStateToProps = (state, ownProps) => ({
-  stories: state.content_list.stories,
+  all_stories: state.content_list.all_stories,
   date: state.content_list.date,
   top_stories: state.content_list.top_stories,
   loading: state.content_list.loading,

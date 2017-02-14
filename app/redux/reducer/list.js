@@ -6,7 +6,7 @@ export const contentList = (state=[], action) => {
     case 'GET_CONTENT_LIST':
     case 'GET_CONTENT_LIST_SUCCESS':
       return {
-        stories: action.data.stories,
+        all_stories: [].concat(action.data),
         top_stories: action.data.top_stories,
         date: action.data.date,
         loading: false
@@ -17,10 +17,12 @@ export const contentList = (state=[], action) => {
         loading: true
       })
     case 'GET_NEXT_NEWS_SUCCESS':
+      console.log('出发了action' + action)
       return Object.assign({}, state, {
         ...state,
         loading: false,
-        date: action.data.date
+        date: action.data.date,
+        all_stories: state.data.all_stories.concat(action.data)
       })
     default:
       return state

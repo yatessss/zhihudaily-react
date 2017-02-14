@@ -20,6 +20,7 @@ const enhancer = compose(
 );
 
 const store = createStore(reducer, enhancer, applyMiddleware(thunk))
+// const store = createStore(reducer, applyMiddleware(thunk))
 
 window.axios = axios
 

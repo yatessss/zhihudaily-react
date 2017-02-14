@@ -15,6 +15,7 @@ const ListItem = React.createClass({
   render() {
     let { dispatch } = this.props
     let item = this.props.item
+    console.log('这个item' + item)
     return (
         <div className="list-item-wrap">
           <li  className="list-detail-box">

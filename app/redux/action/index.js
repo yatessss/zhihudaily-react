@@ -49,16 +49,6 @@ export function getContentData (url, params,successFn=()=>{}) {
     })
   }
 }
-
-export function getNextNews (url, params,successFn=()=>{}) {
-  return dispatch => {
-    dispatch(getNextNewsBefore())
-    axiosGet(url, params, (data)=>{
-      dispatch(getNextNewsSuccess(data.data))
-      successFn()
-    })
-  }
-}
 export const getNextNewsBefore = () => {
   return {
     type: 'GET_NEXT_NEWS_BEFORE'
@@ -72,4 +62,12 @@ export const getNextNewsSuccess = (data) => {
   }
 }
 
-
+export function getNextNews (url, params,successFn=()=>{}) {
+  return dispatch => {
+    dispatch(getNextNewsBefore())
+    axiosGet(url, params, (data)=>{
+      dispatch(getNextNewsSuccess(data.data))
+      successFn()
+    })
+  }
+}
