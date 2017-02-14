@@ -1,7 +1,15 @@
 /**
  * Created by yatessss on 16/12/15.
  */
-export const contentList = (state=[], action) => {
+const initState = {
+  loading: false,
+  date: '',
+  all_stories: [],
+  top_stories: []
+}
+
+
+export const contentList = (state = initState, action) => {
   switch (action.type) {
     case 'GET_CONTENT_LIST':
     case 'GET_CONTENT_LIST_SUCCESS':

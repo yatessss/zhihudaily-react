@@ -1,8 +1,13 @@
 /**
  * Created by yatessss on 16/12/9.
  */
+const initState = {
+  list: [],
+  active: false
+}
 
-export const sidebarList = (state=[], action) => {
+
+export const sidebarList = (state = initState, action) => {
   switch (action.type) {
     case 'GET_SIDEBAR_LIST':
       return {

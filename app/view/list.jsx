@@ -7,7 +7,7 @@ const list = React.createClass({
   render() {
     return (
       <div className="container">
-        <ListHeader showsidebarsync="showSidebar" title="title" tip="tip" icon-display="iconDisplay"/>
+        <ListHeader/>
         <SideBar/>
         <ListDefault/>
         {this.props.children}

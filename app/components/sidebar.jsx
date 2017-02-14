@@ -11,8 +11,7 @@ const sidebar =  React.createClass({
     dispatch(getSidebarData(api.THEMES))
   },
   render() {
-    let { dispatch } = this.props
-    let list = this.props.list? this.props.list :[]
+    let { dispatch, list } = this.props
     return (
       <div>
         <div className={this.props.active? "sidebar-box show-sidebar" : "sidebar-box"}>

@@ -22,18 +22,14 @@ const listHeader = React.createClass({
     }
   },
   render() {
-    let { dispatch } = this.props
-    let allStories = this.props.all_stories ? this.props.all_stories : []
-    console.log(allStories)
-    let date = this.props.date? this.props.date : ''
-    console.log(date)
+    let { dispatch, all_stories} = this.props
     return (
         <div className="main-list">
           {/*// <!--轮播组件-->*/}
           {/*<slider top_stories="topStories" v-cloak></slider>*/}
 
           {/*// <!--列表-->*/}
-            {allStories.map(item =>
+            {all_stories.map(item =>
               <div className="list-box" >
                 <ul key={item.date}>
                   <h2 className="title">{filter.dateTime(item.date)}</h2>
