@@ -4,6 +4,7 @@
 import React from 'react'
 // import axios from 'axios';
 import { toggleSidebar } from '../redux/action'
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import '../css/list-item.scss'
 import filter from '../util/filter.js'
@@ -15,8 +16,8 @@ const ListItem = React.createClass({
   render() {
     let { dispatch } = this.props
     let item = this.props.item
-    console.log('这个item' + item)
     return (
+      <Link to={`/detail/${item.id}`} className="list-item-wrap">
         <div className="list-item-wrap">
           <li  className="list-detail-box">
             <div className="list-content-box">
@@ -40,6 +41,7 @@ const ListItem = React.createClass({
             </div>
           </li>
         </div>
+      </Link>
     )
   }
 });

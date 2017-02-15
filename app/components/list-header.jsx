@@ -10,12 +10,12 @@ const listHeader = React.createClass({
   render() {
     let { dispatch } = this.props
     return (
-        <div className="list-header" key="6">
-          <div className="header-icon" onClick={()=>{dispatch(toggleSidebar())}} key="1"><i className="iconfont" key="8">&#xe612;</i></div>
-          <div  className="header-cont" key="3"><p>title</p></div>
-          <div  className="header-cont" key="5"><p>tip</p></div>
-          <div className="header-icon" key="2"><i className="iconfont" key="7">&#xe610;</i></div>
-          <div className="header-icon changeMode" key="ffy"><i className="iconfont" key="9">&#xe619;</i></div>
+        <div className="list-header">
+          <div className="header-icon" onClick={()=>{dispatch(toggleSidebar())}} ><i className="iconfont">&#xe612;</i></div>
+          <div  className="header-cont"><p>title</p></div>
+          <div  className="header-cont"><p>tip</p></div>
+          <div className="header-icon"  ><i className="iconfont">&#xe610;</i></div>
+          <div className="header-icon changeMode" ><i className="iconfont">&#xe619;</i></div>
         </div>
     )
   }

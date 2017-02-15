@@ -71,3 +71,31 @@ export function getNextNews (url, params,successFn=()=>{}) {
     })
   }
 }
+
+export function fetchData (url, params,successFn=()=>{}) {
+  return dispatch => {
+    dispatch(fetchDataStart());
+    axiosGet(url, params,( data )=>{
+      dispatch(fetchDataSuccess( data.data ));
+      successFn();
+    })
+  }
+}
+
+function fetchDataStart() {
+  return {
+    type: 'FETCH_DATA_START'
+  };
+}
+function fetchDataSuccess(data) {
+  return {
+    type: 'FETCH_DATA_SUCCESS',
+    data
+  };
+}
+export function fetchDataError(data) {
+  return {
+    type: 'FETCH_DATA_ERROR',
+    data
+  };
+}

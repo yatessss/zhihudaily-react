@@ -25,8 +25,6 @@ export const contentList = (state = initState, action) => {
         loading: true
       })
     case 'GET_NEXT_NEWS_SUCCESS':
-      console.log(action)
-      console.log(state)
       return Object.assign({}, state, {
         ...state,
         loading: false,

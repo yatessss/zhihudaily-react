@@ -9,7 +9,7 @@ import api from '../api'
 import ListItem from '../components/list-item.jsx'
 import filter from '../util/filter'
 
-const listHeader = React.createClass({
+const listDefault = React.createClass({
   componentDidMount () {
     let { dispatch } = this.props
     dispatch(getContentData(api.LATEST_NEWS))
@@ -29,8 +29,8 @@ const listHeader = React.createClass({
           {/*<slider top_stories="topStories" v-cloak></slider>*/}
 
           {/*// <!--列表-->*/}
-            {all_stories.map(item =>
-              <div className="list-box" >
+            {all_stories.map((item, index) =>
+              <div className="list-box" key={index}>
                 <ul key={item.date}>
                   <h2 className="title">{filter.dateTime(item.date)}</h2>
                   {item.stories.map(subItem=>
@@ -55,4 +55,4 @@ const mapStateToProps = (state, ownProps) => ({
 export default connect(
     mapStateToProps,
     // mapDispatchToProps
-)(listHeader)
+)(listDefault)

@@ -27,8 +27,8 @@ window.axios = axios
 // 组件
 import Hello from './view/component.jsx';
 import List from './view/list.jsx'
-import SideBar from './components/sidebar.jsx'
-import ListHeader from './components/list-header.jsx'
+import Detail from './view/detail.jsx'
+
 
 import './css/main.scss';
 
@@ -39,10 +39,11 @@ render(
       <div>
         <Router history={hashHistory}>
           <Route path="/" component={List}>
-            <IndexRoute component={Hello}/>
+            {/*<IndexRoute component={Hello}/>*/}
 
           </Route>
           <Route path="theme" component={Hello}/>
+          <Route path="detail/:id" component={Detail} />
         </Router>
         <DevTools />
       </div>
