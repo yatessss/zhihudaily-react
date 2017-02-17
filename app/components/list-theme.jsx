@@ -35,30 +35,27 @@ const listDefault = React.createClass({
     let themeId  = this.props.params.id
     return (
       <div className="theme-list">
-        {/*{all_stories.map((item, index) =>*/}
-          {/*<div className="list-box" key={index}>*/}
-            {/*<ul key={item.date}>*/}
-              {/*<h2 className="title">{filter.dateTime(item.date)}</h2>*/}
-              {/*{item.stories.map(subItem=>*/}
-                {/*<ListItem key={subItem.id} item={subItem}></ListItem>*/}
-              {/*)}*/}
-              {/*/!*<list-comp v-for="subItem in item.stories" item="subItem"></list-comp>*!/*/}
-            {/*</ul>*/}
-          {/*</div>*/}
-        {/*)}*/}
-
-        <div className="detail-img-box margin-top" >
+        <div className="detail-img-box margin-top" style={{backgroundImage: 'url(' + filter.replaceUrl(theme_stories.background) + ')'}}>
         <div className="detail-mask"></div>
-        <h1 className="detail-title">1</h1>
-        <p className="detail-image-source">11</p>
+        <h1 className="detail-title">{theme_stories.description}</h1>
+        <p className="detail-image-source">{theme_stories.imageSource}</p>
         </div>
         {/*<!--主编-->*/}
-        <div  className="editors-box">
-          <p>主编</p>
-          <div className="editors-item" >
-            <img src="" alt=""/>
-          </div>
-        </div>
+        {(()=>{
+          if (theme_stories.editors && theme_stories.editors.length > 0) {
+            return (
+              <div  className="editors-box">
+                <p>主编</p>
+                {theme_stories.editors.map(item =>
+                    <div key={'editor-'+item.id} className="editors-item" >
+                      <img src={filter.replaceUrl(item.avatar)} alt=""/>
+                    </div>
+                  )
+                }
+              </div>
+            )
+          }
+        })()}
         {/*<!--列表-->*/}
         <div className="list-box">
           <ul>

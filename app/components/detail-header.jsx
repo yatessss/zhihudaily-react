@@ -4,7 +4,7 @@ import { fetchData, showCollection, hideCollection, showShare, hideShare} from '
 import { connect } from 'react-redux'
 import '../css/detail-header.scss'
 import api from '../api'
-import util from '../util/filter'
+import filter from '../util/filter'
 
 const detailHeader = React.createClass({
   componentWillMount () {
@@ -42,7 +42,7 @@ const detailHeader = React.createClass({
           <div className="header-icon" onClick={this.changeShare}><i className="iconfont">&#xe61f;</i></div>
           <div className="header-icon" onClick={this.changeCollection}><i className={collection ? 'iconfont collection' : 'iconfont'}>&#xe604;</i></div>
           <div className="header-icon" ><i className="iconfont">&#xe606;</i><span>{comments}</span></div>
-          <div className="header-icon"><i className="iconfont">&#xe611;</i><span>{util.toK(popularity)}</span></div>
+          <div className="header-icon"><i className="iconfont">&#xe611;</i><span>{filter.toK(popularity)}</span></div>
         </div>
         {(() => {
           if (show_share) {

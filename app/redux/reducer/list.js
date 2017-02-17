@@ -7,7 +7,9 @@ const initState = {
   all_stories: [],
   top_stories: [],
   theme_stories: {
-    stories: []
+    stories: [],
+    background: '',
+    editors: []
   }
 }
 
@@ -47,6 +49,7 @@ export const contentList = (state = initState, action) => {
         ...state,
         loading: false,
         theme_stories: {
+          ...state.theme_stories,
           stories: state.theme_stories.stories.concat(action.data.stories)
         }
       })
