@@ -6,7 +6,8 @@ const env = {
   LATEST_NEWS: 'http://news-at.zhihu.com/api/4/news/latest',
   NEXT_NEWS: 'http://news.at.zhihu.com/api/4/news/before/',
   NEWS_INFO: 'http://news-at.zhihu.com/api/4/news/',
-  STORY_EXTRA: 'http://news-at.zhihu.com/api/4/story-extra/'
+  STORY_EXTRA: 'http://news-at.zhihu.com/api/4/story-extra/',
+  GET_THEME: 'http://news-at.zhihu.com/api/4/theme/'
 }
 
 export default env

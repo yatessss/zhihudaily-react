@@ -3,7 +3,7 @@ import DetailHeader from '../components/detail-header.jsx'
 import DetailContent from '../components/detail-content.jsx'
 import { fetchData } from '../redux/action'
 import { connect } from 'react-redux'
-import '../css/detail-header.scss'
+// import '../css/detail-header.scss'
 import api from '../api'
 
 const detail = React.createClass({
@@ -12,7 +12,7 @@ const detail = React.createClass({
     return (
       <div className="container">
         <DetailHeader id={id}/>
-        {/*<DetailContent/>*/}
+        <DetailContent id={id}/>
         {this.props.children}
       </div>
     )

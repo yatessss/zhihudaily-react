@@ -10,8 +10,13 @@ const sidebar =  React.createClass({
     let { dispatch } = this.props
     dispatch(getSidebarData(api.THEMES))
   },
+  toggleSidebar () {
+    let { dispatch } = this.props
+    dispatch(toggleSidebar())
+  },
   render() {
-    let { dispatch, list } = this.props
+    let { dispatch, list, id } = this.props
+    console.log('sidebar', this.props)
     return (
       <div>
         <div className={this.props.active? "sidebar-box show-sidebar" : "sidebar-box"}>
@@ -34,12 +39,14 @@ const sidebar =  React.createClass({
           </div>
           {/*<!--侧边栏列表-->*/}
           <div className="sidebar-list">
-            <p  className="sidebar-list-first" ><i className="iconfont">&#xe61b;</i>首页</p>
+            <Link to={`/`}>
+              <p  className="sidebar-list-first" onClick={this.toggleSidebar}><i className="iconfont">&#xe61b;</i>首页</p>
+            </Link>
             <ul className="sidebar-list-ul">
 
               {list.map(item =>
-              <Link key={item.name} to="/theme">
-                <li className="sidebar-list-li" >
+              <Link key={item.name} to={`/theme/${item.id}`}>
+                <li className="sidebar-list-li" onClick={this.toggleSidebar}>
                   <p>{item.name}</p>
                   <div>+</div>
                 </li>
@@ -48,7 +55,7 @@ const sidebar =  React.createClass({
             </ul>
           </div>
         </div>
-        <div onClick={()=>{dispatch(toggleSidebar())}} className={this.props.active? "sidebar-mask": ''}></div>
+        <div onClick={this.toggleSidebar} className={this.props.active? "sidebar-mask": ''}></div>
       </div>
     )
   }

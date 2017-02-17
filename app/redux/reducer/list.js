@@ -5,7 +5,10 @@ const initState = {
   loading: false,
   date: '',
   all_stories: [],
-  top_stories: []
+  top_stories: [],
+  theme_stories: {
+    stories: []
+  }
 }
 
 
@@ -25,11 +28,27 @@ export const contentList = (state = initState, action) => {
         loading: true
       })
     case 'GET_NEXT_NEWS_SUCCESS':
+      console.log(action)
+      console.log(state)
       return Object.assign({}, state, {
         ...state,
         loading: false,
         date: action.data.date,
         all_stories: state.all_stories.concat(action.data)
+      })
+    case 'GET_THEME_SUCCESS':
+      return Object.assign({}, state, {
+        ...state,
+        loading: false,
+        theme_stories: action.data
+      })
+    case 'GET_THEME_BEFORE_SUCCESS':
+      return Object.assign({}, state, {
+        ...state,
+        loading: false,
+        theme_stories: {
+          stories: state.theme_stories.stories.concat(action.data.stories)
+        }
       })
     default:
       return state

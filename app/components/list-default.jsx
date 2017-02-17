@@ -15,6 +15,9 @@ const listDefault = React.createClass({
     dispatch(getContentData(api.LATEST_NEWS))
     window.addEventListener('scroll', this.getScrollList, false)
   },
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.getScrollList, false)
+  },
   getScrollList () {
     let { dispatch } = this.props
     if ((window.document.body.offsetHeight + window.document.body.scrollTop) + 100 > window.document.body.scrollHeight && !this.props.loading) {

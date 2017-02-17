@@ -28,17 +28,23 @@ const ListItem = React.createClass({
                 }
               })()}
             </div>
-            <div  className="list-img-box">
-              <img src={filter.replaceUrl(item.images[0])} alt=""/>
-              {(()=>{
-                if (item.multipic) {
-                  return <p className="tip">
+            {(()=>{
+              if (item.images) {
+                return (
+                  <div  className="list-img-box">
+                    <img src={filter.replaceUrl(item.images[0])} alt=""/>
+                    {(()=>{
+                      if (item.multipic) {
+                        return <p className="tip">
                           <i className="iconfont">&#xe61c;</i>
                           多图
                         </p>
-                }
-              })()}
-            </div>
+                      }
+                    })()}
+                  </div>
+                )
+              }
+            })()}
           </li>
         </div>
       </Link>

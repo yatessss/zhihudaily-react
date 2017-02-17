@@ -12,8 +12,14 @@
   font-style:normal;
   color: #ffffff;
 }
+.iconfont-1 {
+  font-family:"iconfont";
+  font-size: 30px;
+  font-style:normal;
+  color: #ffffff;
+}
 
-.list-header{
+.detail-header{
   position: fixed;
   transform: translateZ(0);
   top: 0;
@@ -39,7 +45,7 @@
       color: #FFCE00;
     }
   }
-  .header-cont {
+  .detail-cont {
     flex: 2;
     padding-left: 10px;
     >p{

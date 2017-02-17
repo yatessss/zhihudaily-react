@@ -28,7 +28,8 @@ window.axios = axios
 import Hello from './view/component.jsx';
 import List from './view/list.jsx'
 import Detail from './view/detail.jsx'
-
+import listDefault from './components/list-default.jsx'
+import ListTheme from './components/list-theme.jsx'
 
 import './css/main.scss';
 
@@ -39,10 +40,11 @@ render(
       <div>
         <Router history={hashHistory}>
           <Route path="/" component={List}>
-            {/*<IndexRoute component={Hello}/>*/}
-
+            <IndexRoute component={listDefault}/>
+            <Route path="theme/:id" component={ListTheme} />
+            {/*<Route path="messages/:id" component={Message} />*/}
           </Route>
-          <Route path="theme" component={Hello}/>
+          {/*<Route path="theme" component={Hello}/>*/}
           <Route path="detail/:id" component={Detail} />
         </Router>
         <DevTools />

@@ -99,3 +99,58 @@ export function fetchDataError(data) {
     data
   };
 }
+
+export const showCollection = () => {
+  return {
+    type: 'SHOW_COLLECTION'
+  }
+}
+
+export const hideCollection = () => {
+  return {
+    type: 'HIDE_COLLECTION'
+  }
+}
+
+export const showShare = () => {
+  return {
+    type: 'SHOW_SHARE'
+  }
+}
+
+export const hideShare  = () => {
+  return {
+    type: 'HIDE_SHARE'
+  }
+}
+
+export const getThemeSuccess = (data) => {
+  return {
+    type: 'GET_THEME_SUCCESS',
+    data
+  }
+}
+export function getThemeData (url, params,successFn=()=>{}) {
+  return dispatch => {
+    axiosGet(url, params, (data)=>{
+      dispatch(getThemeSuccess(data.data))
+      successFn()
+    })
+  }
+}
+export function getThemeBeforeData (url, params,successFn=()=>{}) {
+  return dispatch => {
+    dispatch(getNextNewsBefore())
+    axiosGet(url, params, (data)=>{
+      dispatch(getThemeBeforeSuccess(data.data))
+      successFn()
+    })
+  }
+}
+
+export const getThemeBeforeSuccess  = (data) => {
+  return {
+    type: 'GET_THEME_BEFORE_SUCCESS',
+    data
+  }
+}
