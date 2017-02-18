@@ -7,7 +7,8 @@ const env = {
   NEXT_NEWS: 'http://news.at.zhihu.com/api/4/news/before/',
   NEWS_INFO: 'http://news-at.zhihu.com/api/4/news/',
   STORY_EXTRA: 'http://news-at.zhihu.com/api/4/story-extra/',
-  GET_THEME: 'http://news-at.zhihu.com/api/4/theme/'
+  GET_THEME: 'http://news-at.zhihu.com/api/4/theme/',
+  GET_COMMENTS: 'http://news-at.zhihu.com/api/4/story/'
 }
 
 export default env

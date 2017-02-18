@@ -124,6 +124,18 @@ export const hideShare  = () => {
   }
 }
 
+export const showBox = () => {
+  return {
+    type: 'SHOW_BOX'
+  }
+}
+
+export const hideBox  = () => {
+  return {
+    type: 'HIDE_BOX'
+  }
+}
+
 export const getThemeSuccess = (data) => {
   return {
     type: 'GET_THEME_SUCCESS',
@@ -160,3 +172,64 @@ export const initDetailData  = () => {
     type: 'INIT_DETAIL_DATA'
   }
 }
+
+export function getLongComments (url, params,successFn=()=>{}) {
+  return dispatch => {
+    dispatch(fetchDataStart())
+    axiosGet(url, params, (data)=>{
+      dispatch(getLongCommentsSuccess(data.data))
+      successFn()
+    })
+  }
+}
+
+export const getLongCommentsSuccess  = (data) => {
+  return {
+    type: 'GET_LONG_COMMENTS_SUCCESS',
+    data
+  }
+}
+
+
+export function getShortComments (url, params,successFn=()=>{}) {
+  return dispatch => {
+    dispatch(fetchDataStart())
+    axiosGet(url, params, (data)=>{
+      dispatch(getShortCommentsSuccess(data.data))
+      successFn()
+    })
+  }
+}
+
+export const getShortCommentsSuccess  = (data) => {
+  return {
+    type: 'GET_SHORT_COMMENTS_SUCCESS',
+    data
+  }
+}
+
+
+
+export function getShortCommentsNext (url, params,successFn=()=>{}) {
+  return dispatch => {
+    dispatch(fetchDataStart())
+    axiosGet(url, params, (data)=>{
+      dispatch(getShortCommentsNextSuccess(data.data))
+      successFn()
+    })
+  }
+}
+
+export const getShortCommentsNextSuccess  = (data) => {
+  return {
+    type: 'GET_SHORT_COMMENTS_NEXT_SUCCESS',
+    data
+  }
+}
+
+export const initComments  = () => {
+  return {
+    type: 'INIT_COMMENTS'
+  }
+}
+

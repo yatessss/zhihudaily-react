@@ -32,6 +32,7 @@ import listDefault from './components/list-default.jsx'
 import ListTheme from './components/list-theme.jsx'
 import Editor from './view/editor.jsx'
 import Author from './view/author.jsx'
+import Comments from './view/comments.jsx'
 
 import './css/main.scss';
 
@@ -50,6 +51,7 @@ render(
           {/*<Route path="theme" component={Hello}/>*/}
           <Route path="detail/:id" component={Detail} />
           <Route path="editor" component={Editor} />
+          <Route path="comments/:id" component={Comments} />
         </Router>
         <DevTools />
       </div>

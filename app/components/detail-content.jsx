@@ -21,7 +21,13 @@ const detailContent = React.createClass({
     }
   },
   componentWillUnmount () {
-    let {dispatch} = this.props
+    let {dispatch, detailContent} = this.props
+    let extra = {
+      comments: detailContent.comments,
+      long_comments: detailContent.long_comments,
+      short_comments: detailContent.short_comments
+    }
+    window.sessionStorage.extra = JSON.stringify(extra)
     dispatch(initDetailData())
   },
   render() {

@@ -2,6 +2,7 @@ import React from 'react'
 // import axios from 'axios';
 import { fetchData, showCollection, hideCollection, showShare, hideShare} from '../redux/action'
 import { connect } from 'react-redux'
+import { Link } from 'react-router';
 import '../css/detail-header.scss'
 import api from '../api'
 import filter from '../util/filter'
@@ -22,7 +23,7 @@ const detailHeader = React.createClass({
   },
   changeShare () {
     let { dispatch} = this.props
-    let { show_share } = this.props.extra
+    let { show_share } = this.props.detail_content
     if (show_share) {
       dispatch(hideShare())
     } else {
@@ -33,7 +34,7 @@ const detailHeader = React.createClass({
     window.history.back()
   },
   render() {
-    let { comments, popularity, collection, show_share } = this.props.extra
+    let { comments, popularity, collection, show_share, id } = this.props.detail_content
     return (
       <div>
         <div className="detail-header">
@@ -41,7 +42,11 @@ const detailHeader = React.createClass({
           <div className="detail-cont"></div>
           <div className="header-icon" onClick={this.changeShare}><i className="iconfont">&#xe61f;</i></div>
           <div className="header-icon" onClick={this.changeCollection}><i className={collection ? 'iconfont collection' : 'iconfont'}>&#xe604;</i></div>
-          <div className="header-icon" ><i className="iconfont">&#xe606;</i><span>{comments}</span></div>
+          <Link to={'/comments/'+id}>
+            <div className="header-icon">
+              <i className="iconfont">&#xe606;</i><span>{comments}</span>
+            </div>
+          </Link>
           <div className="header-icon"><i className="iconfont">&#xe611;</i><span>{filter.toK(popularity)}</span></div>
         </div>
         {(() => {
@@ -70,7 +75,7 @@ const detailHeader = React.createClass({
 });
 
 const mapStateToProps = (state, ownProps) => ({
-  extra: state.detail_content
+  detail_content: state.detail_content
 })
 
 export default connect(
