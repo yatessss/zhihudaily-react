@@ -1,0 +1,46 @@
+
+.common-header{
+  position: fixed;
+  transform: translateZ(0);
+  top: 0;
+  z-index: 4;
+  height: 50px;
+  width: 100%;
+  background: #00A2EA;
+  display: flex;
+  flex-direction: row;
+  .iconfont {
+    font-family:"iconfont";
+    font-size: 19px;
+    font-style:normal;
+    color: #ffffff;
+    margin-right: 3px;
+  }
+  .header-icon{
+    flex:1;
+    text-align: center;
+    >i{
+      line-height: 53px;
+    }
+    >span{
+      color: #ffffff;
+      font-size: 14px;
+      margin-left: 3px;
+    }
+    .collection{
+      color: #FFCE00;
+    }
+  }
+  .header-cont {
+    flex: 6;
+    padding-left: 10px;
+    >p{
+      line-height: 50px;
+      color: #ffffff;
+      font-size:16px;
+      span{
+        font-size: 18px;
+      }
+    }
+  }
+}

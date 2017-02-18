@@ -154,3 +154,9 @@ export const getThemeBeforeSuccess  = (data) => {
     data
   }
 }
+
+export const initDetailData  = () => {
+  return {
+    type: 'INIT_DETAIL_DATA'
+  }
+}

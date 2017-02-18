@@ -21,22 +21,24 @@ const sidebar =  React.createClass({
       <div>
         <div className={this.props.active? "sidebar-box show-sidebar" : "sidebar-box"}>
           {/*<!--侧边栏头部-->*/}
-          <div className="sidebar-header"  >
-            <div className="user">
-              <img src="http://7xqch8.com1.z0.glb.clouddn.com/4.pic_hd.jpg" alt=""/>
-              <p>yatessss</p>
-            </div>
-            <div className="function">
-              <div className="function-sub">
-                <i className="iconfont">&#xe614;</i>
-                <p>我的收藏</p>
+          <Link to="/author">
+            <div className="sidebar-header" onClick={this.toggleSidebar}>
+              <div className="user">
+                <img src="http://7xqch8.com1.z0.glb.clouddn.com/4.pic_hd.jpg" alt=""/>
+                <p>yatessss</p>
               </div>
-              <div className="function-sub">
-                <i className="iconfont">&#xe60f;</i>
-                <p>离线下载</p>
+              <div className="function">
+                <div className="function-sub">
+                  <i className="iconfont">&#xe614;</i>
+                  <p>我的收藏</p>
+                </div>
+                <div className="function-sub">
+                  <i className="iconfont">&#xe60f;</i>
+                  <p>离线下载</p>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
           {/*<!--侧边栏列表-->*/}
           <div className="sidebar-list">
             <Link to={`/`}>

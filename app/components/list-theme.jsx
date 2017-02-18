@@ -4,6 +4,7 @@
 import React from 'react'
 import { getThemeData, getThemeBeforeData } from '../redux/action'
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import '../css/list-theme.scss'
 import api from '../api'
 import ListItem from '../components/list-item.jsx'
@@ -19,8 +20,11 @@ const listDefault = React.createClass({
   componentWillUnmount() {
     window.removeEventListener('scroll', this.getScrollTheme, false)
   },
+  // 路由数据更新的时候钩子
   componentDidUpdate () {
+    window.sessionStorage.editors = JSON.stringify(this.props.theme_stories.editors)
     console.log(this.state)
+
   },
   getScrollTheme () {
     let { dispatch, theme_stories } = this.props
@@ -44,15 +48,17 @@ const listDefault = React.createClass({
         {(()=>{
           if (theme_stories.editors && theme_stories.editors.length > 0) {
             return (
-              <div  className="editors-box">
-                <p>主编</p>
-                {theme_stories.editors.map(item =>
+              <Link to="/editor">
+                <div  className="editors-box">
+                  <p>主编</p>
+                  {theme_stories.editors.map(item =>
                     <div key={'editor-'+item.id} className="editors-item" >
                       <img src={filter.replaceUrl(item.avatar)} alt=""/>
                     </div>
                   )
-                }
-              </div>
+                  }
+                </div>
+              </Link>
             )
           }
         })()}
@@ -70,10 +76,6 @@ const listDefault = React.createClass({
 });
 
 const mapStateToProps = (state, ownProps) => ({
-  all_stories: state.content_list.all_stories,
-  date: state.content_list.date,
-  top_stories: state.content_list.top_stories,
-  loading: state.content_list.loading,
   theme_stories: state.content_list.theme_stories
 })
 

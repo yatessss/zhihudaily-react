@@ -30,6 +30,8 @@ import List from './view/list.jsx'
 import Detail from './view/detail.jsx'
 import listDefault from './components/list-default.jsx'
 import ListTheme from './components/list-theme.jsx'
+import Editor from './view/editor.jsx'
+import Author from './view/author.jsx'
 
 import './css/main.scss';
 
@@ -42,10 +44,12 @@ render(
           <Route path="/" component={List}>
             <IndexRoute component={listDefault}/>
             <Route path="theme/:id" component={ListTheme} />
+            <Route path="author" component={Author} />
             {/*<Route path="messages/:id" component={Message} />*/}
           </Route>
           {/*<Route path="theme" component={Hello}/>*/}
           <Route path="detail/:id" component={Detail} />
+          <Route path="editor" component={Editor} />
         </Router>
         <DevTools />
       </div>

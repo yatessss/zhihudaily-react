@@ -9,8 +9,10 @@ const initState = {
   title: '',
   image: '',
   collection: false,
-  show_share: false
-
+  show_share: false,
+  section: {
+    name: ''
+  }
 }
 
 export const detailContent = (state = initState, action) => {
@@ -42,6 +44,8 @@ export const detailContent = (state = initState, action) => {
         ...state,
         show_share: false
       }
+    case 'INIT_DETAIL_DATA':
+      return Object.assign({}, initState)
     // case 'TOGGLE_SIDEBAR':
     //   return Object.assign({}, state, {
     //     ...state,
