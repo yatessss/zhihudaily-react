@@ -93,6 +93,23 @@ function fetchDataSuccess(data) {
     data
   };
 }
+function fetchNextDataSuccess(data) {
+  return {
+    type: 'FETCH_NEXT_DATA_SUCCESS',
+    data
+  };
+}
+
+export function fetchNextData (url, params,successFn=()=>{}) {
+  return dispatch => {
+    dispatch(fetchDataStart());
+    axiosGet(url, params,( data )=>{
+      dispatch(fetchNextDataSuccess( data.data ));
+      successFn();
+    })
+  }
+}
+
 export function fetchDataError(data) {
   return {
     type: 'FETCH_DATA_ERROR',
@@ -233,3 +250,46 @@ export const initComments  = () => {
   }
 }
 
+export const initSection  = () => {
+  return {
+    type: 'INIT_SECTION'
+  }
+}
+
+export function getSectionList (url, params,successFn=()=>{}) {
+  return dispatch => {
+    dispatch(getSectionStart());
+    axiosGet(url, params,( data )=>{
+      dispatch(getSectionSuccess( data.data ));
+      successFn();
+    })
+  }
+}
+
+function getSectionStart() {
+  return {
+    type: 'GET_SECTION_START'
+  };
+}
+function getSectionSuccess(data) {
+  return {
+    type: 'GET_SECTION_SUCCESS',
+    data
+  };
+}
+function getNextSectionSuccess(data) {
+  return {
+    type: 'GET_NEXT_SECTION_SUCCESS',
+    data
+  };
+}
+
+export function getNextSection (url, params,successFn=()=>{}) {
+  return dispatch => {
+    dispatch(getSectionStart());
+    axiosGet(url, params,( data )=>{
+      dispatch(getNextSectionSuccess( data.data ));
+      successFn();
+    })
+  }
+}

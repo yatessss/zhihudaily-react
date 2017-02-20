@@ -1,5 +1,5 @@
 import React from 'react'
-import {getLongComments, getShortComments, getShortCommentsNext, showBox, hideBox} from '../redux/action'
+import {getLongComments, getShortComments, getShortCommentsNext, showBox, hideBox, initComments} from '../redux/action'
 import { connect } from 'react-redux'
 import api from '../api'
 import '../css/comments.scss'
@@ -33,6 +33,8 @@ const comments = React.createClass({
   },
   componentWillUnmount () {
     window.removeEventListener('scroll', this.getScrollData, false)
+    let {dispatch} = this.props
+    dispatch(initComments())
   },
   render() {
     let extra = JSON.parse(window.sessionStorage.extra)

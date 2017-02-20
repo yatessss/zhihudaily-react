@@ -2,6 +2,7 @@ import React from 'react'
 // import axios from 'axios';
 import { fetchData, initDetailData } from '../redux/action'
 import { connect } from 'react-redux'
+import { Link } from 'react-router';
 import '../css/zhihu_news_detail.scss'
 import '../css/detail-content.scss'
 import api from '../api'
@@ -71,11 +72,13 @@ const detailContent = React.createClass({
             if (section.name) {
               return (
                 <div className="section-box">
-                  <div className="section-btn">
-                    <img src={filter.replaceUrl(section.thumbnail)} alt=""/>
+                  <Link to={`/section/${section.id}`}>
+                    <div className="section-btn">
+                      <img src={filter.replaceUrl(section.thumbnail)} alt=""/>
                       <p>本文来自: {section.name} · 合集</p>
                       <div className="arrow"></div>
-                  </div>
+                    </div>
+                  </Link>
                 </div>
               )
             }
