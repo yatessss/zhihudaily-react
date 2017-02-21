@@ -3,13 +3,22 @@
  */
 var path = require('path');
 var webpack = require('webpack');
-var production = process.env.NODE_ENV === 'production'
+var nodeEnv
 
-var config = {
-  entry: {
+if (process.env.NODE_ENV === 'dev') {
+  nodeEnv = {
+    app: './app/main.dev.js',
+    vendors: ['react']
+  }
+} else {
+  nodeEnv =  {
     app: './app/main.js',
     vendors: ['react']
-  },
+  }
+}
+
+var config = {
+  entry: nodeEnv,
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'app.js'
@@ -64,3 +73,4 @@ var config = {
 };
 
 module.exports = config;
+

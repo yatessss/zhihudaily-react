@@ -14,18 +14,16 @@ import DevTools from './DevTools'
 import reducer from './redux/reducer'
 import { Provider } from 'react-redux'
 
-
 const enhancer = compose(
     DevTools.instrument()
 );
 
-const store = createStore(reducer, enhancer, applyMiddleware(thunk))
-// const store = createStore(reducer, applyMiddleware(thunk))
+// const store = createStore(reducer, enhancer, applyMiddleware(thunk))
+const store = createStore(reducer, applyMiddleware(thunk))
 
 window.axios = axios
 
 // 组件
-import Hello from './view/component.jsx';
 import List from './view/list.jsx'
 import Detail from './view/detail.jsx'
 import listDefault from './components/list-default.jsx'
@@ -55,7 +53,7 @@ render(
           <Route path="comments/:id" component={Comments} />
           <Route path="section/:id" component={Section} />
         </Router>
-        <DevTools />
+        {/*<DevTools />*/}
       </div>
     </Provider>,
     document.getElementById('app')
