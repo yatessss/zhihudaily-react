@@ -14,7 +14,7 @@ const detailHeader = React.createClass({
   },
   changeCollection () {
     let { dispatch} = this.props
-    let { collection } = this.props.extra
+    let { collection } = this.props.detail_content
     if (collection) {
       dispatch(hideCollection())
     } else {

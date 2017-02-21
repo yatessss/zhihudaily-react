@@ -3,14 +3,11 @@
  */
 var path = require('path');
 var webpack = require('webpack');
+var production = process.env.NODE_ENV === 'production'
 
 var config = {
   entry: {
-    app: [
-      'webpack/hot/dev-server',
-      'webpack-dev-server/client?http://localhost:8080',
-      path.resolve(__dirname, 'app/main.js')
-    ],
+    app: './app/main.js',
     vendors: ['react']
   },
   output: {
@@ -47,8 +44,17 @@ var config = {
     browsers: ["Android >= 2.3", "iOS >= 4"], //, "ChromeAndroid > 1%"
     cascade: false  // 不美化输出 css
   },
+  devServer: {
+    inline: true
+  },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js', Infinity),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false

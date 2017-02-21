@@ -13,7 +13,7 @@
 // }
 const env = {
   THEMES: 'http://api.yatessss.com:8888/news-at/api/4/themes',
-  LATEST_NEWS: 'http://api.yatessss.com:8888/news-at//api/4/news/latest',
+  LATEST_NEWS: 'http://api.yatessss.com:8888/news-at/api/4/news/latest',
   NEXT_NEWS: 'http://api.yatessss.com:8888/news-at/api/4/news/before/',
   NEWS_INFO: 'http://api.yatessss.com:8888/news-at/api/4/news/',
   STORY_EXTRA: 'http://api.yatessss.com:8888/news-at/api/4/story-extra/',
