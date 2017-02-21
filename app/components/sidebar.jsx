@@ -16,7 +16,6 @@ const sidebar =  React.createClass({
   },
   render() {
     let { dispatch, list, id } = this.props
-    console.log('sidebar', this.props)
     return (
       <div>
         <div className={this.props.active? "sidebar-box show-sidebar" : "sidebar-box"}>
