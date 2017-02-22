@@ -32,6 +32,7 @@ import Editor from './view/editor.jsx'
 import Author from './view/author.jsx'
 import Comments from './view/comments.jsx'
 import Recommender from './view/recommender.jsx'
+import Section from './view/section.jsx'
 
 import './css/main.scss';
 
