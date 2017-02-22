@@ -1,0 +1,56 @@
+.recommender-wrap {
+
+  ul{
+    padding: 15px;
+    margin-top: 50px;
+    .title{
+      color: #8c8c8c;
+      margin-bottom: 15px;
+      font-size: 13px;
+      margin-left: 0;
+    }
+    li{
+      padding: 10px 0;
+      border-top: 1px solid #d1d1d1;
+      a{
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        .img-box{
+          height: 40px;
+          width: 40px;
+          img{
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+          }
+        }
+        .info{
+          margin-left: 10px;
+          .name{
+            font-size: 15px;
+            font-weight: bold;
+            color: #000;
+            .zhubian{
+              display: inline-block;
+              width: 40px;
+              height: 20px;
+              background: #4ed1ad;
+              border-radius: 5px;
+              color: #ffffff;
+              font-size: 13px;
+              line-height: 20px;
+              text-align: center;
+              margin-left: 10px;
+            }
+          }
+          .bio{
+            color: #8c8c8c;
+            font-size: 12px;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+}

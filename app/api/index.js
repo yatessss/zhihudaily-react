@@ -21,6 +21,7 @@ const env = {
   GET_COMMENTS: 'http://api.yatessss.com:8888/news-at/api/4/story/',
   GET_SECTION: 'http://api.yatessss.com:8888/news-at/api/3/section/'
 }
+console.log(process.env.NODE_ENV)
 
 export default env
 

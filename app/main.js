@@ -31,7 +31,7 @@ import ListTheme from './components/list-theme.jsx'
 import Editor from './view/editor.jsx'
 import Author from './view/author.jsx'
 import Comments from './view/comments.jsx'
-import Section from './view/section.jsx'
+import Recommender from './view/recommender.jsx'
 
 import './css/main.scss';
 
@@ -52,6 +52,7 @@ render(
           <Route path="editor" component={Editor} />
           <Route path="comments/:id" component={Comments} />
           <Route path="section/:id" component={Section} />
+          <Route path="recommender/:id" component={Recommender} />
         </Router>
         {/*<DevTools />*/}
       </div>

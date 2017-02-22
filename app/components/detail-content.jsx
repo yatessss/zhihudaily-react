@@ -32,7 +32,7 @@ const detailContent = React.createClass({
     dispatch(initDetailData())
   },
   render() {
-    let { title, image_source, image, section, body, recommenders  } = this.props.detailContent
+    let { title, image_source, image, section, body, recommenders, id  } = this.props.detailContent
     return (
       <div>
         <div className="detail-main-box">
@@ -46,14 +46,16 @@ const detailContent = React.createClass({
           {(()=>{
             if (recommenders && recommenders.length > 0) {
               return (
-                <div className="recommenders-box">
-                  <p>推荐者</p>
-                  {recommenders.map((item, index)=>
-                    <div className="recommenders-item" key={'recommender-'+index}>
-                      <img src={filter.replaceUrl(item.avatar)} alt=""/>
-                    </div>
-                  )}
-                </div>
+                <Link to={`/recommender/${id}`}>
+                  <div className="recommenders-box">
+                    <p>推荐者</p>
+                    {recommenders.map((item, index)=>
+                      <div className="recommenders-item" key={'recommender-'+index}>
+                        <img src={filter.replaceUrl(item.avatar)} alt=""/>
+                      </div>
+                    )}
+                  </div>
+                </Link>
               )
             }
           })()}

@@ -8,6 +8,7 @@ import '../css/list-default.scss'
 import api from '../api'
 import ListItem from '../components/list-item.jsx'
 import filter from '../util/filter'
+import Slider from './slider.jsx'
 
 const listDefault = React.createClass({
   componentDidMount () {
@@ -27,10 +28,10 @@ const listDefault = React.createClass({
   render() {
     let { dispatch, all_stories} = this.props
     return (
+
         <div className="main-list">
           {/*// <!--轮播组件-->*/}
-          {/*<slider top_stories="topStories" v-cloak></slider>*/}
-
+          <Slider></Slider>
           {/*// <!--列表-->*/}
             {all_stories.map((item, index) =>
               <div className="list-box" key={index}>

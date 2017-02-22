@@ -2,8 +2,6 @@
  * Created by yatessss on 16/12/15.
  */
 import React from 'react'
-// import axios from 'axios';
-import { toggleSidebar } from '../redux/action'
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import '../css/list-item.scss'

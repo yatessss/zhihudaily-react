@@ -293,3 +293,27 @@ export function getNextSection (url, params,successFn=()=>{}) {
     })
   }
 }
+
+export function getRecommender (url, params,successFn=()=>{}) {
+  return dispatch => {
+    axiosGet(url, params,( data )=>{
+      dispatch(getRecommenderSuccess( data.data ));
+      successFn();
+    })
+  }
+}
+
+function getRecommenderSuccess(data) {
+  return {
+    type: 'GET_RECOMMENDER_SUCCESS',
+    data
+  };
+}
+
+
+
+export const initRecommender  = () => {
+  return {
+    type: 'INIT_RECOMMENDER'
+  }
+}
