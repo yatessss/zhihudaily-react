@@ -21,10 +21,15 @@ const listDefault = React.createClass({
     window.removeEventListener('scroll', this.getScrollTheme, false)
   },
   // 路由数据更新的时候钩子
-  componentDidUpdate () {
-    window.sessionStorage.editors = JSON.stringify(this.props.theme_stories.editors)
-    console.log(this.state)
+  componentDidUpdate (prevProps) {
+    let { dispatch } = this.props
+    let oldThemeId = prevProps.params.id
+    let newThemeId  = this.props.params.id
+    if (oldThemeId !== newThemeId) {
+      dispatch(getThemeData(api.GET_THEME + newThemeId))
 
+    }
+    window.sessionStorage.editors = JSON.stringify(this.props.theme_stories.editors)
   },
   getScrollTheme () {
     let { dispatch, theme_stories } = this.props
