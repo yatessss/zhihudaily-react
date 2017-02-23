@@ -10,12 +10,18 @@ const initState = {
     stories: [],
     background: '',
     editors: []
-  }
+  },
+  night_style: false
 }
 
 
 export const contentList = (state = initState, action) => {
   switch (action.type) {
+    case 'CHANGE_MODE':
+      return Object.assign({}, state, {
+        ...state,
+        night_style: !state.night_style
+      })
     case 'GET_CONTENT_LIST':
     case 'GET_CONTENT_LIST_SUCCESS':
       return Object.assign({}, state, {

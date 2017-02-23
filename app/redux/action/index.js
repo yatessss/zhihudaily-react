@@ -310,10 +310,14 @@ function getRecommenderSuccess(data) {
   };
 }
 
-
-
 export const initRecommender  = () => {
   return {
     type: 'INIT_RECOMMENDER'
+  }
+}
+
+export const changeMode  = () => {
+  return {
+    type: 'CHANGE_MODE'
   }
 }

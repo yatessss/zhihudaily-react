@@ -215,7 +215,24 @@ body {
   .list-header{
     background: #222222;
   }
+  .detail-header{
+    background: #222222;
+  }
   .list-box{
+    background: #343434;
+    .title{
+      color: #B7B7B7;
+    }
+    .list-detail-box{
+      background: #404040;
+      border: 1px solid #343434;
+      border-bottom: 1px solid #222222;
+      .list-content-box{
+        color: #d2d2d2;
+      }
+    }
+  }
+  .section-list{
     background: #343434;
     .title{
       color: #B7B7B7;
@@ -248,19 +265,25 @@ body {
     .sidebar-list-first{
       background: #343434;
     }
-    .sidebar-list-ul{
+    .sidebar-list-ul p{
       color: #B7B7B7;
     }
   }
   .editors-box{
     background: #343434;
     color: #B7B7B7;
+    p {
+      color: #B7B7B7;
+    }
   }
   .name{
     color: #B7B7B7;
   }
   .content-wrap{
     background: #343434;
+    .headline {
+      border-bottom: #303030;
+    }
     .headline-title{
       color: #B7B7B7;
     }
@@ -268,6 +291,9 @@ body {
       background: #343434;
       .question + .question{
         border-top: 4px solid #222222;
+      }
+      .answer {
+        border: #303030;
       }
     }
     .heading-content{
@@ -301,6 +327,9 @@ body {
   .recommenders-box{
     background: #343434;
     color: #B7B7B7;
+    p {
+      color: #B7B7B7;
+    }
   }
   .comments-header{
     background: #222222;
