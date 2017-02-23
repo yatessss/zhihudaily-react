@@ -3,6 +3,15 @@ import SideBar from '../components/sidebar.jsx'
 import ListHeader from '../components/list-header.jsx'
 
 const list = React.createClass({
+  componentDidUpdate () {
+  },
+  iconDisplay () {
+    if (this.props.params.id) {
+      return false
+    } else {
+      return true
+    }
+  },
   title () {
     switch (this.props.params.id) {
       case '13':
@@ -36,7 +45,7 @@ const list = React.createClass({
   render() {
     return (
       <div className="container">
-        <ListHeader title={this.title()}/>
+        <ListHeader title={this.title()} iconDisplay={this.iconDisplay()}/>
         <SideBar/>
         {this.props.children}
       </div>

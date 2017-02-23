@@ -40,4 +40,15 @@
       font-size:16px;
     }
   }
+  .header-icon-wrap{
+    flex: 2;
+    display: flex;
+    .header-icon{
+      flex:1;
+      text-align: center;
+      >i{
+        line-height: 53px;
+      }
+    }
+  }
 }

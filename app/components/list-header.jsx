@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 import '../css/list-header.scss'
 
 const listHeader = React.createClass({
-  componentWillMount () {
-
-  },
   changeMode () {
     let {dispatch, night_style} = this.props
     dispatch(changeMode())
@@ -19,14 +16,23 @@ const listHeader = React.createClass({
     }
   },
   render() {
-    let { dispatch, title } = this.props
+    let { dispatch, title, iconDisplay } = this.props
     return (
         <div className="list-header">
           <div className="header-icon" onClick={()=>{dispatch(toggleSidebar())}} ><i className="iconfont">&#xe612;</i></div>
           <div  className="header-cont"><p>{title}</p></div>
           <div  className="header-cont"><p>tip</p></div>
-          <div className="header-icon"  ><i className="iconfont">&#xe610;</i></div>
-          <div className="header-icon" onClick={this.changeMode}><i className="iconfont">&#xe619;</i></div>
+
+          {(()=>{
+            if (iconDisplay) {
+              return (
+                <div className="header-icon-wrap">
+                  <div className="header-icon"  ><i className="iconfont">&#xe610;</i></div>
+                  <div className="header-icon" onClick={this.changeMode}><i className="iconfont">&#xe619;</i></div>
+                </div>
+              )
+            }
+          })()}
         </div>
     )
   }
