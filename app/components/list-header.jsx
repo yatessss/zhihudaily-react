@@ -21,7 +21,7 @@ const listHeader = React.createClass({
         <div className="list-header">
           <div className="header-icon" onClick={()=>{dispatch(toggleSidebar())}} ><i className="iconfont">&#xe612;</i></div>
           <div  className="header-cont"><p>{title}</p></div>
-          <div  className="header-cont"><p>tip</p></div>
+          {/*<div  className="header-cont"><p>tip</p></div>*/}
 
           {(()=>{
             if (iconDisplay) {
