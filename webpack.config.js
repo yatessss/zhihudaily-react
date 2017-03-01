@@ -5,6 +5,8 @@ var path = require('path');
 var webpack = require('webpack');
 var nodeEnv
 
+console.log(process.env.NODE_ENV)
+
 if (process.env.NODE_ENV === 'dev') {
   nodeEnv = {
     app: './app/main.dev.js',
@@ -59,11 +61,11 @@ var config = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js', Infinity),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    }),
+    // new webpack.DefinePlugin({
+    //   'process.env': {
+    //     NODE_ENV: JSON.stringify('production')
+    //   }
+    // }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false

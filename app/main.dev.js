@@ -18,7 +18,7 @@ import { Provider } from 'react-redux'
 const enhancer = compose(
   DevTools.instrument()
 );
-console.log(process.env.NODE_ENV)
+console.log(process.env)
 const store = createStore(reducer, enhancer, applyMiddleware(thunk))
 // const store = createStore(reducer, applyMiddleware(thunk))
 

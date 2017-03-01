@@ -28,7 +28,7 @@ const SimpleSlider = React.createClass({
           <div className="swiper-wrapper">
             {/*<div  className="swiper-slide" style="{ backgroundImage: 'url(' + replace(item.image) + ')' }">*/}
             {slider.map(item=>
-              <div  className="swiper-slide" style={{backgroundImage: 'url(' + filter.replaceUrl(item.image) + ')' }} >
+              <div key={item.id} className="swiper-slide" style={{backgroundImage: 'url(' + filter.replaceUrl(item.image) + ')' }} >
                 <Link to={`/detail/${item.id}`} key={`slider-${item.id}`}>
                   <div className="swiper-mask"></div>
                   <h1 className="slider-title">{item.title}</h1>
